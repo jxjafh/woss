@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="jxlg.xyh.domain">
+<class name="News" table="News">
+<!-- 主键策略 -->
+<id name="NewsID" type="java.lang.Integer" >
+<!-- 常用hilo sequence native incrment uuid identity foreign-->
+<generator class="native" ></generator><!-- 主键自增 -->
+</id>
+<property name="Title" type="java.lang.String">
+<column name="title" length="64" not-null="true"></column>
+</property>
+<property name="Content" type="java.lang.String">
+<column name="content" length="64" not-null="true"></column>
+</property>
+<property name="Time" type="java.util.Date">
+<column name="time" length="64" ></column>
+</property>
+<property name="Author" type="java.lang.String">
+<column name="author" length="64" not-null="true"></column>
+</property>
+<property name="NewsImg" type="java.lang.String">
+<column name="newsImg" length="64" not-null="true"></column>
+</property>
+</class>
+</hibernate-mapping>

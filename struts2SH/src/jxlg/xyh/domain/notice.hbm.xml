@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="jxlg.xyh.domain">
+<class name="Notice" table="Notice">
+<!-- 主键策略 -->
+<id name="NoticeID" type="java.lang.Integer">
+<!-- 常用hilo sequence native incrment uuid identity foreign-->
+<generator class="native"></generator><!-- 主键自增 -->
+</id>
+<property name="Content" type="java.lang.String">
+<column name="content" length="20"  not-null="true"></column>
+</property>
+</class>
+</hibernate-mapping>

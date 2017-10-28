@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-2.5.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<!-- 测试spring -->
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/kaoshi?
+useUnicode=true&amp;characterEncoding=utf-8" />
+		<property name="username" value="fh" />
+		<property name="password" value="" />
+		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialSize" value="30" />
+		<!--连接池中保留的最小连接数。 -->
+		<property name="maxActive" value="500" />
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxIdle" value="2" />
+		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="minIdle" value="1" />
+	</bean>
+	<!-- 配置会话工厂 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 设置数据源 -->
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- 对象关系映射文件配置 -->
+		  <property name="mappingResources">
+			<list>
+            <value>test/domain/exam.hbm.xml</value>
+            <value>test/domain/question.hbm.xml</value>
+			<value>test/domain/questionitem.hbm.xml</value>
+			<!--<value>jxlg/xyh/domain/ad.hbm.xml</value>
+				<value>jxlg/xyh/domain/notice.hbm.xml</value>
+				<value>jxlg/xyh/domain/user.hbm.xml</value>
+				<value>jxlg/xyh/domain/item.hbm.xml</value>
+				<value>jxlg/xyh/domain/news.hbm.xml</value>
+				<value>jxlg/xyh/domain/registration.hbm.xml</value>
+				-->
+			
+			</list>
+			
+		</property>
+		
+		
+   <!-- 格式 -->
+		<property name="hibernateProperties">
+			<props>
+			<!-- 二级缓存 -->
+			    <prop key="cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<!--是否显示被翻译好的格式语句 -->
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+				<!--自动通过对象关系映射文件创建关系数据库 -->
+				<prop key="hibernate.hbm2ddl.auto">
+					update
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- DAO类 -->
+	<bean id="examDAOimpl" class="kaoshi.daoimpl.ExamDAOimpl" abstract="false"
+		lazy-init="default" autowire="default">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+		<bean id="questionDAOimpl" class="kaoshi.daoimpl.QuestionDAOimpl" abstract="false"
+		lazy-init="default" autowire="default">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+		<bean id="questionItemDAOimpl" class="kaoshi.daoimpl.QuestionItemDAOimpl" abstract="false"
+		lazy-init="default" autowire="default">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="adDAO" class="jxlg.xyh.daoimpl.adDAO" abstract="false"
+		lazy-init="default" autowire="default">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<!-- <property name="sessionFactory" ref="sessionFactory"></property> -->
+	</bean>
+	<!-- action -->   <!-- scope="prototype" 防止validate()一次验证失败后重复失败 -->
+	<bean id="adaction" class="jxlg.xyh.action.adaction" scope="prototype">
+		<property name="adDAO" ref="adDAO"></property>
+	</bean>
+	
+	<!-- 配置事务管理器，统一管理SessionFactory -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 启用事务注解 @Transactional -->
+	<tx:annotation-driven transaction-manager="txManager" />
+</beans>

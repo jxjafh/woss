@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="jxlg.xyh.domain">
+<class name="Registration" table="Registration">
+<!-- 主键策略 -->
+<id name="AthleteNo" type="java.lang.Integer">
+<!-- 常用hilo sequence native incrment uuid identity foreign-->
+<generator class="native"></generator><!-- 主键自增 -->
+</id>
+<many-to-one name="item" cascade="all" class="jxlg.xyh.domain.Item" lazy="false" fetch="join">
+ <column name="item" ></column>
+</many-to-one>
+<property name="UserName" type="java.lang.String">
+<column name="userName" length="20" not-null="true"></column>
+</property>
+<property name="StudentID" type="java.lang.Integer">
+<column name="studentID" length="20" not-null="true"></column>
+</property>
+<property name="ItemID" type="java.lang.Integer">
+<column name="itemID" length="20" not-null="true"></column>
+</property>
+<property name="UserClass" type="java.lang.String">
+<column name="userClass" length="20" not-null="true"></column>
+</property>
+<property name="UserDepartment" type="java.lang.String">
+<column name="userDepartment" length="20" not-null="true"></column>
+</property>
+<property name="ItemName" type="java.lang.String">
+<column name="itemName" length="20" not-null="true"></column>
+</property>
+<property name="UserScore" type="java.lang.String">
+<column name="userScore" length="20" not-null="true"></column>
+</property>
+<property name="ClassScore" type="java.lang.String">
+<column name="classScore" length="20" not-null="true"></column>
+</property>
+<property name="DeptScore" type="java.lang.String">
+<column name="deptScore" length="20" not-null="true"></column>
+</property>
+<property name="Result" type="java.lang.Double">
+<column name="result" length="20" not-null="true"></column>
+</property>
+</class>
+</hibernate-mapping>

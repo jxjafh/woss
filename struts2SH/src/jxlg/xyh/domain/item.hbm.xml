@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="jxlg.xyh.domain">
+<class name="Item" table="Item">
+<!-- 主键策略 -->
+<id name="itemID" type="java.lang.Integer">
+<!-- 常用hilo sequence native incrment uuid identity foreign-->
+<generator class="native"></generator><!-- 主键自增 -->
+</id>
+<property name="ItemName" type="java.lang.String">
+<column name="itemName" length="20" not-null="true"></column>
+</property>
+<property name="StudentNumber" type="java.lang.String">
+<column name="studentNumber" length="20" not-null="true"></column>
+</property>
+<property name="ItemTime" type="java.lang.String">
+<column name="itemTime" length="20" not-null="true"></column>
+</property>
+<property name="ItemAddress" type="java.lang.String">
+<column name="itemAddress" length="20" not-null="true"></column>
+</property>
+<property name="History" type="java.lang.String">
+<column name="history" length="20" not-null="true"></column>
+</property>
+<property name="Introduce" type="java.lang.String">
+<column name="introduce" length="20" not-null="true"></column>
+</property>
+<set name="Registration" cascade="save-update" inverse="true">
+<key><column name="registration" not-null="true"/></key>
+<one-to-many class="jxlg.xyh.domain.Registration"/>
+</set>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="jxlg.xyh.domain">
+<class name="User" table="User">
+<!-- 主键策略 -->
+<id name="StudentID" type="java.lang.Integer">
+<!-- 常用hilo sequence native incrment uuid identity foreign-->
+<generator class="native"></generator><!-- 主键自增 -->
+</id>
+<property name="StudentName" type="java.lang.String">
+<column name="studentName" length="64"  not-null="true"></column>
+</property>
+<property name="Password" type="java.lang.String">
+<column name="password" length="64"  not-null="true"></column>
+</property>
+<property name="StudentSex" type="java.lang.String">
+<column name="studentSex" length="64"  not-null="true"></column>
+</property>
+<property name="UserClass" type="java.lang.String">
+<column name="userClass" length="64"  not-null="true"></column>
+</property>
+<property name="UserDepartment" type="java.lang.String">
+<column name="userDepartment" length="64"  not-null="true"></column>
+</property>
+</class>
+</hibernate-mapping>

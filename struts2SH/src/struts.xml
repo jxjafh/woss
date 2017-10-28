@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+  "-http://Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+  "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.il8n.encoding" value="utf-8" />
+	<!-- struts 动态调用 -->
+	<!-- <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> -->
+	<package name="default" extends="struts-default">
+	<!--顺序:result-types?,interceptors?,default-interceptor-ref?,default-action-ref?,default-class-ref?,global-
+ results?,global-exception-mappings?,action-->
+		<interceptors>
+			<interceptor name="testfilter" class="jxlg.xyh.filter.testfilter"></interceptor>
+		</interceptors>
+		<!--默认action-->
+		<default-action-ref name="defaultaction"></default-action-ref>
+		
+		<!-- result type属性: chain:链接下一个Action,执行actionA后执行actionB dispather:转发(默认) 
+			redirect:重定向 -->
+		<global-results>
+			<result name="error">/index.jsp</result>
+		</global-results>
+		<action name="ad_*" class="jxlg.xyh.action.adaction" method="{1}">
+		    <result name="desuccess">/ok.jsp</result>
+			<result name="paging">/ok.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="login">/Select.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<!--拦截器测试 <interceptor-ref name="testfilter"></interceptor-ref> -->
+		</action>
+		<action name="defaultaction">
+		<result name="SUCCESS">index.jsp</result>
+		</action>
+	</package>
+</struts>
