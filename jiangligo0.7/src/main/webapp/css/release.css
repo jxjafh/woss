@@ -1,0 +1,58 @@
+/*移除HTML5 input在type="number"时的上下小箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+.container{
+	background-color: white;
+	margin:0;
+	border-radius: 5px;
+}
+
+form{
+	font-size: 15px;
+}
+.tab-pane{
+    margin-left: 209px;
+}
+.form-group{
+	margin: 0;
+}
+.form-group label{
+	margin:10px 0;
+}
+.form-group input[type=file]{
+	width: 0;
+	height: 0;
+	display: none;
+	position: absolute;
+}
+.form-group .row span,#div-add span{
+	font-size: 20px;
+	position: absolute;
+	color: white;
+	background-color: red;
+	border-radius: 15px;
+}
+.form-group img{
+	width: 110px;
+	height: 110px;
+}
+.form-control-static button{
+	font-size: 25px;
+}
+
+/*错误提示*/
+.error{
+	position: relative;
+	font-size: 10px;
+	color: red;
+}
+.popover-content{
+	width:100px;
+	color:red;
+}
+

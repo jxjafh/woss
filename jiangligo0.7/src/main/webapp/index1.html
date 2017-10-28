@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" content="江理购，二手货交易，江理"/>
+		<title>江理购首页</title>
+		<link rel="stylesheet" href="css/indexHeader.css" />
+		<link rel="stylesheet" href="css/admin-index.css" />
+		
+	</head>
+	<body>
+		<div class="container">
+
+	
+	<!--第二部分导航栏-->
+	<div class="section">
+		<img class="logo" src="images/jiangligo.png"/>
+		<img class="zhi" src="images/zhi.png"/>
+		<a id="new_file.html" class="a1" href="javascript:void(0)">首页</a>
+		<a id="admin/audit.do?intal=0" class="a1" href="javascript:void(0)">商品审查</a>
+		<a id="admin/allmember.do?intal=0" class="a1" href="javascript:void(0)">会员管理</a>
+	</div>
+	
+
+	
+	</div>
+	<iframe src="new_file.html">
+	
+	</iframe>
+	<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+		<script type="text/javascript">
+	$(".a1").each(function(){
+		$(this).click(function(){
+			var page = $(this).attr("id");
+			//iframe淡出动画
+		$("iframe").attr("src",page);
+    	});
+	});
+	$("#logo").click(function(){
+		$("#iframe").attr("src","admin/index.html");
+	});
+
+	
+	</script>
+	</body>
+</html>

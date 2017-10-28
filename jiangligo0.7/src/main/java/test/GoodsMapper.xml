@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test_interface.GoodsMapper">
+<sql id="lastid">SELECT last_insert_id()</sql>
+
+<insert id="insert" parameterType="test_pojo.Goods"  useGeneratedKeys="true" keyProperty="id" >
+    insert into goods(name,info,prive,sort_id,state,member_id,order_id) values(#{name},#{info},#{price},#{sort_id},#{state},#{member_id},#{order_id})
+</insert>
+
+<insert id="insertbyid" parameterType="test_pojo.Goods" useGeneratedKeys="true" keyProperty="id">
+    <selectKey keyProperty="id" resultType="int" order="AFTER">
+    <include refid="lastid"></include>
+    </selectKey>
+    insert into goods(id,name,info,prive,sort_id,state,member_id,order_id) values(#{id},#{name},#{info},#{price},#{sort_id},#{state},#{member_id},#{order_id})
+</insert>
+    
+<delete id="delete">
+delete from goods where id=${id}
+</delete>
+
+<select id="selectByID" parameterType="int" 
+        resultType="test_pojo.Goods">
+        select * from goods where id=#{id}</select>
+
+<!-- 批量按id查询 --> 
+<select id="selectbyidlist">
+   select * from goods where id in
+   <foreach collection="list" item="id" index="currectIndex" separator="," open="(" close=")">
+   #{id}
+   </foreach>
+   </select> 
+   
+<!-- 批量按id删除 --> 
+<delete id="deletebyidlist">
+   delete from goods where id in
+   <foreach collection="list" item="id" index="currectIndex" separator="," open="(" close=")">
+   #{id}
+   </foreach>
+   </delete>
+   
+<!-- 分页 -->           
+<select id="selectpage" resultType="map">
+select * from goods
+</select>
+</mapper>

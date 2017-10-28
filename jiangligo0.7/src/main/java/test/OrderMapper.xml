@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test_interface.OrderMapper">
+<sql id="lastid">SELECT last_insert_id()</sql>
+
+<insert id="insert" parameterType="test_pojo.Order"  useGeneratedKeys="true" keyProperty="id" >
+    insert into order(member_id) values(#{member_id})
+</insert>
+
+<insert id="insertbyid" parameterType="test_pojo.Order" useGeneratedKeys="true" keyProperty="id">
+    <selectKey keyProperty="id" resultType="int" order="AFTER">
+    <include refid="lastid"></include>
+    </selectKey>
+insert into order(id,member_id) values(#{id},#{member_id})
+</insert>
+    
+<delete id="delete">
+delete from order where id=#{id}
+</delete>
+
+<select id="selectByID" parameterType="int" 
+        resultType="test_pojo.Order">
+        select * from order where id=#{id}</select>
+
+<!-- 批量按id查询 --> 
+<select id="selectbyidlist">
+   select * from order where id in
+   <foreach collection="list" item="id" index="currectIndex" separator="," open="(" close=")">
+   #{id}
+   </foreach>
+   </select> 
+   
+<!-- 批量按id删除 --> 
+<delete id="deletebyidlist">
+   delete from order where id in
+   <foreach collection="list" item="id" index="currectIndex" separator="," open="(" close=")">
+   #{id}
+   </foreach>
+   </delete>
+   
+<!-- 分页 -->           
+<select id="selectpage" resultType="map">
+select * from order
+</select>
+
+<!-- 一对多查goods -->
+<select id="selectgoods" resultMap="orderonetomanygoods" parameterType="id">
+select * from order where id=#{id}
+</select>
+
+<!-- resultMap -->
+<resultMap type="goods" id="orderonetomanygoods"></resultMap>
+</mapper>

@@ -1,0 +1,194 @@
+@charset "utf-8";
+/*头部导航*/
+header{
+	width:1350px;
+	height:45px;
+	background-color: rgb(245,245,245);
+	position: relative;
+	margin: auto;
+}
+header a{
+	line-height: 45px;
+	text-decoration: none;
+	font-size: 16px;
+	transition:0.5s;
+}
+header .a1{
+	margin-left: 80px;
+	color: rgb(255,68,0);
+}
+header .a2{
+	margin-left: 10px;
+}
+header .a2:hover{
+	color: rgb(255,68,0);
+}
+header .a3{
+	margin-left: 10px;
+}
+header .a3:hover{
+	color: rgb(255,68,0);
+}
+header .ul1{
+	width: auto;
+	height: 45px;
+	position: relative;
+	float: right;
+	z-index: 2;
+	/*background-color: red;*/
+	/*float: right;*/
+}
+header .ul1 li{
+	text-align: center;
+	line-height: 45px;
+	float: left;
+	font-size: 16px;
+	width: 115px;
+	cursor: pointer;
+	transition:0.5s;
+}
+header .ul1 li:hover{
+	color: rgb(255,68,0);
+	background-color: white;
+	text-shadow: 1px 1px 1px black;
+}
+header .ul1 .li1{
+	background: url(../img/jiantou.png)no-repeat 106px 19px;
+}
+header .ul1 .li2{
+	background: url(../img/wujiaoxing.png)no-repeat 9px 14px;
+	margin-left: 40px;
+}
+header .ul1 .li3{
+	background: url(../img/jiantou.png)no-repeat 96px 19px;
+	margin-left: 5px;
+}
+header .ul1 .li4{
+	background: url(../img/gouwuche.png)no-repeat 14px 14px;
+	margin-left: 5px;
+}
+header .ul1 .li5{
+	background: url(../img/jiantou.png)no-repeat 96px 19px;
+	margin-left: 5px;
+}
+header .ul1 .ul2{
+	display: none;
+}
+header .ul1 .ul2 li{
+	transition:.5s;
+}
+header .ul1 .ul2 li:hover{
+	color: rgb(255,68,0);
+	background-color: rgb(230,230,230);
+}
+header .ul1 .ul2 li a{
+	color: black;
+}
+
+/*第二部分导航栏搜索栏*/
+.section{
+    width:1350px;
+    height: 90px;
+	background-color:gold;
+	position: relative;
+	z-index: 1;
+	margin: auto;
+}
+.section .logo{
+	height: 70px;
+	margin-top: 12px;
+	margin-left: 60px;
+	float: left;
+}
+.section a{
+	text-decoration: none;
+	color: black;
+	transition:0.5s ;
+	margin-left: 24px;
+	font-size: 16px;
+	font-weight: 600;
+}
+.section .a4{
+	line-height: 90px;
+	float: left;
+}
+.section .a5{
+	line-height: 90px;
+	float: left;
+}
+.section .a6{
+	line-height: 90px;
+	float: left;
+}
+.section a:hover{
+	color: rgb(255,68,0);
+	
+}
+.section .ul3{
+	margin-top: 18px;
+	width: 10%;
+	text-align: center;
+	float: left;
+	background: url(../img/jiantou.png)no-repeat 120px 25px;
+}
+.section .ul3 li{
+	line-height: 55px;
+	cursor: pointer;
+	position: relative;
+}
+.section .ul3 li:hover{
+	color: rgb(255,68,0);
+}
+.section .ul3 .ul4{
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+	display: none;
+	background-color: gold;
+}
+.section .ul3 .ul4 li{
+	text-align: left;
+	line-height: 30px;
+}
+.section .ul3 .ul4 li:hover{
+	background-color: rgb(230,230,230);
+}
+.section .ul3 .ul4 span{
+	color: rgb(255,68,0);
+}
+.section .search{
+	height: 90px;
+	width: 50%;
+	float: right;
+	text-align: center;
+	/*background-color: aquamarine;*/
+}
+.section .search .formSearch{
+	width: 100%;
+	height: 90px;
+	position: relative;
+}
+.section .search .formSearch input[type="search"]{
+	width: 60%;
+	height: 45px;
+	position: absolute;
+	top: 25px;
+	left: 120px;
+	border: 1px solid black;
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 7px;
+	text-indent: 20px;
+	font-size:18px;
+}
+.section .search .formSearch input[type="submit"]{
+	height: 45px;
+	width: 45px;
+	position: absolute;
+	top: 25px;
+	right: 102px;
+	background: url(../img/fangdajing.png)no-repeat 0px 0px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 1px black;
+	cursor: pointer;
+}

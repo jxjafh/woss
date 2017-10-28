@@ -1,0 +1,145 @@
+		header{
+			font-family: "Microsoft YaHei","宋体","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
+			
+		}
+		#header img{
+			position: relative;
+			top: 5px;
+		}
+		#list{
+			width: 988px;
+			margin-bottom: 40px;
+			padding: 0;
+			
+		}
+		#list:hover{
+			border: 1px solid gray;
+		}
+		#list table{
+			border-spacing:0px 0px;
+			width: 100%;
+		}
+		a{
+            color: black;
+			text-decoration:none;
+		}
+		#order{
+			margin-bottom:20px ;
+		}
+		#order table{
+			border-spacing:0px 0px;
+			text-align: center;
+			margin-top:20px;
+			width: 100%;
+			padding: 0px;
+		} 
+		#order table:hover{
+
+		}
+		/*表标题*/
+		table #tabletitle{
+			font-family:"仿宋";
+			font-size: 1em;
+			font-weight: 400;
+			color: black;
+			border: 1px solid ghostwhite;
+		}
+
+		table #tabletitle .tabletitletd{
+			background-color: whitesmoke;
+			width: 94px;
+			height: 42px;
+		}
+		table tr td p{
+			text-align: center;
+			margin-left: 0px;
+			font-family:"新宋体";
+			font-size: 1em;
+			padding-left:0px;
+			
+		}
+		table tr td .tablegoodstddiv{
+			margin: 0;
+			position: relative;
+			width:400px;
+			height: 120px;
+			overflow: hidden;
+		}
+		/*全选*/
+		table #tablegoodsone{
+			text-align: left;
+			font-size: 0.5em;
+			height: 40px;
+		}
+		/*订单号，日期*/
+		table  #tablegoodstwo{
+			text-align: left;
+			height: 40px;
+			width: 100%;
+			background-color: aliceblue;	
+		}
+		
+		table  #tablegoodstwo label{
+			font-size: 14px;
+		}
+		table  #tablegoodstwo span{
+			font-family:"新宋体";
+			font-size: 18px;
+		}
+		/*商品图片*/
+		.tablegoodstddiv img{
+			position: absolute;
+			left:0px;
+			top:20px;
+		}
+		table tr td  .tablegoodstddiv p{
+			/*float: right;
+			padding: 0px;*/
+			position: absolute;
+			text-align: left;
+			left: 100px;
+			top: 20px;
+		}
+		/*单价 数量 实付款......*/
+		table tr td .tablegoodstdge {
+		    margin: 0px;
+		    padding: 0px;
+			/*position: relative;*/
+			width:93px;
+			height: 120px;
+			overflow: hidden;
+			text-align: center;
+			line-height: 55px;
+			position:relative;
+		}
+		
+		table tr td .tablegoodstdge .p span,p{
+			margin: 0;
+			/*top: 20px;
+			left: 40px;*/
+			text-align: center;
+			/*position: absolute;*/
+		}
+		
+		table tr td .tablegoodstddiv p:hover{
+			color: coral;
+		}
+		
+		table tr td .tablegoodstdge p  input{
+		    position:absolute;
+		    top:12px;
+		    right:15px;
+			background-color: white;
+			width: 60px;
+			border:1px solid darkgray;
+			color: black;
+		    height: 30px;
+		    font-size:1px;
+		}
+		table tr td .tablegoodstdge p  input:hover{
+			border: 2px solid red;
+			color: red;
+		}
+			a:hover{
+				color: coral;
+			}
